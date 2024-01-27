@@ -28,11 +28,11 @@ const SignUp = () => {
       if (data.success === false) {
         setError(data.message);
         setLoading(false);
-        navigate('/sign-in');
         return;
       }
       setLoading(false);
       setError(null);
+      navigate('/sign-in');
       console.log(data);
     }
        catch (error) {
