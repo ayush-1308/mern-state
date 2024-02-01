@@ -1,5 +1,6 @@
 import React from 'react'
 import { useSelector } from "react-redux";
+import { Link } from "react-router-dom";
 import { useRef, useState, useEffect } from "react";
 import { getDownloadURL, getStorage, ref, uploadBytesResumable } from 'firebase/storage';
 import {app} from '../firebase'
@@ -131,6 +132,9 @@ const Profile = () => {
         <input type="email" placeholder="email"  defaultValue={currentUser.email}  className="border p-3 rounded-lg" id="email" onChange={handleChange}/>
         <input type="password" placeholder="password" className="border p-3 rounded-lg" id="password" onChange={handleChange}/>
         <button disabled={loading} className='bg-slate-700 text-white p-3 uppercase rounded-lg hover:opacity-95 disabled:opacity-80'>{loading ? 'Loading..' : 'Update'}</button>
+        <Link className='bg-green-700 text-white p-3 rounded-lg uppercase text-center hover:opacity-95'  to={"/create-listing"}>
+          Create Listing
+          </Link>        
       </form>
       <div className='flex justify-between mt-5'>
         <span onClick={handleDeleteUser} className='text-red-700 cursor-pointer'>Delete account</span>
